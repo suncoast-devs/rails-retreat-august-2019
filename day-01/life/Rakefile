@@ -1,0 +1,5 @@
+task :test do
+  ruby "test/example_test.rb"
+end
+
+task default: :test
