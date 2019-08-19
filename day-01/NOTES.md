@@ -14,4 +14,4 @@ Loop
 
 https://www.codewars.com/kata/57f781872e3d8ca2a000007e
 https://www.codewars.com/kata/57cc975ed542d3148f00015b
-https://www.codewars.com/kata/57cc975ed542d3148f00015b
+https://www.codewars.com/kata/56f69d9f9400f508fb000ba7
