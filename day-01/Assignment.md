@@ -7,3 +7,12 @@ As we learn a new language, we need to practice the new ideas, syntax, and parad
 ## Requirements
 
 - Head to [Ruby Koans](http://rubykoans.com/) and follow the directions
+
+### Hint
+
+For auto-running:
+
+```
+brew install entr
+ls *.rb | entr -r ruby path_to_enlightenment.rb
+```
