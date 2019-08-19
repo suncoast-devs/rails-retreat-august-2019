@@ -1,7 +1,7 @@
 # Notes
 
-https://suncoast.io/handbook/curriculum/back-end/full-stack-i/lecture/ruby/intro-to-ruby/
-https://suncoast.io/handbook/curriculum/back-end/full-stack-i/lecture/ruby/classes
+- [Intro Notes](https://suncoast.io/handbook/curriculum/back-end/full-stack-i/lecture/ruby/intro-to-ruby/)
+- [Classes](https://suncoast.io/handbook/curriculum/back-end/full-stack-i/lecture/ruby/classes)
 
 ## REPL
 
