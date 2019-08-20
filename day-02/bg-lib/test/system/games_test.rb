@@ -36,11 +36,10 @@ class GamesTest < ApplicationSystemTestCase
     click_on "Create Game"
 
     assert_text "#{@new_game.title} was successfully created"
-    click_on "Back"
   end
 
   test "updating a Game" do
-    visit games_url
+    visit game_url(@game)
     click_on "Edit", match: :first
 
     fill_in "Artist", with: @game.artist
@@ -54,11 +53,10 @@ class GamesTest < ApplicationSystemTestCase
     click_on "Update Game"
 
     assert_text "#{@game.title} was successfully updated"
-    click_on "Back"
   end
 
   test "destroying a Game" do
-    visit games_url
+    visit game_url(@game)
     page.accept_confirm do
       click_on "Destroy", match: :first
     end

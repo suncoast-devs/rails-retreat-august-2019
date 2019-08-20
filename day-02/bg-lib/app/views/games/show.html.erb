@@ -1,51 +1,76 @@
-<p id="notice"><%= notice %></p>
+<nav class="level is-mobile">
+  <div class="level-left">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li><%= link_to "Games", games_path %></li>
+        <li class="is-active"><%= link_to @game.title, @game %></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="level-right">
+    <div class="level-item">
+      <%= link_to edit_game_path(@game), class: 'button is-primary', title: 'Edit' do %>
+        <span class="icon is-small">
+          <i class="fas fa-edit"></i>
+        </span>
+      <% end %>
+    </div>
+    <div class="level-item">
+      <%= link_to @game, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-outlined', title: 'Destroy' do %>
+        <span class="icon is-small">
+          <i class="fas fa-trash"></i>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</nav>
 
-<p>
-  <strong>Title:</strong>
-  <%= @game.title %>
-</p>
+<table class="table is-fullwidth">
+  <tr>
+    <th>Name</th>
+    <td><%= @game.title %></td>
+  </tr>
 
-<p>
-  <strong>Designer:</strong>
-  <%= @game.designer %>
-</p>
+  <tr>
+    <th>Designer</th>
+    <td><%= @game.designer %></td>
+  </tr>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @game.artist %>
-</p>
+  <tr>
+    <th>Artist</th>
+    <td><%= @game.artist %></td>
+  </tr>
 
-<p>
-  <strong>Publisher:</strong>
-  <%= @game.publisher %>
-</p>
+  <tr>
+    <th>Publisher</th>
+    <td><%= @game.publisher %></td>
+  </tr>
 
-<p>
-  <strong>Min players:</strong>
-  <%= @game.min_players %>
-</p>
+  <tr>
+    <th>Min Players</th>
+    <td><%= @game.min_players %></td>
+  </tr>
 
-<p>
-  <strong>Max players:</strong>
-  <%= @game.max_players %>
-</p>
+  <tr>
+    <th>Max Players</th>
+    <td><%= @game.max_players %></td>
+  </tr>
 
-<p>
-  <strong>Play time:</strong>
-  <%= @game.play_time %>
-</p>
+  <tr>
+    <th>Play Time</th>
+    <td><%= @game.play_time %></td>
+  </tr>
 
-<p>
-  <strong>Year:</strong>
-  <%= @game.year %>
-</p>
+  <tr>
+    <th>Year</th>
+    <td><%= @game.year %></td>
+  </tr>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+</table>
 
-<h3>Play Log</h3>
+<h2 class="title is-4">Play Log</h2>
 
-<table>
+<table class="table is-fullwidth">
   <thead>
     <tr>
       <th>Date</th>
@@ -55,25 +80,38 @@
   </thead>
   <% @game.plays.each do |play| %>
     <tr>
-      <td><%= play.played_on %></td>
+      <td><%= time_tag play.played_on %></td>
       <td><%= play.note %></td>
-      <td><%= link_to 'X', [@game, play], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td>
+      <%= link_to [@game, play], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-outlined', title: 'Destroy' do %>
+        <span class="icon is-small">
+          <i class="fas fa-trash"></i>
+        </span>
+      <% end %></td>
     </tr>
   <% end %>
 </table>
 
+<h2 class="subtitle">Log a play session for <%= @game.title %>:</h2>
+
 <%= form_with(model: [@game, Play.new], local: true) do |form| %>
   <div class="field">
-    <%= form.label :played_on %>
-    <%= form.date_field :played_on %>
+    <%= form.label :played_on, class: "label" %>
+    <div class="control">
+      <%= form.date_field :played_on, class: "input" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :note %>
-    <%= form.text_area :note %>
+    <%= form.label :note, class: "label" %>
+    <div class="control">
+      <%= form.text_area :note, class: "textarea" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+    <div class="control">
+      <%= form.submit "Log Play", class: "button is-primary" %>
+    </div>
   </div>
 <% end %>

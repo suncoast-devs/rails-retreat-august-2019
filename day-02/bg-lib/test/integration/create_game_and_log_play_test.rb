@@ -17,7 +17,7 @@ class CreateGameAndLogPlayTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
 
-    assert_select "#notice", "Dale of Merchants was successfully created."
+    assert_select ".message", "Dale of Merchants was successfully created."
 
     post "/games/#{Game.last.id}/plays", params: {
                                            play: {
@@ -28,7 +28,7 @@ class CreateGameAndLogPlayTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
 
-    assert_select "#notice", "Logged a play for Dale of Merchants"
+    assert_select ".message", "Logged a play for Dale of Merchants"
     assert_select "td", "A great deckbuilding game."
   end
 end
