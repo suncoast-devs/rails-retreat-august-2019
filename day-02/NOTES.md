@@ -10,7 +10,16 @@ rails new bg-lib
 
 rails db:create
 
-# rails generate scaffold Game title designer artist publisher min_players:integer max_players:integer play_time:integer year:integer
+rails generate scaffold Game title designer artist publisher min_players:integer max_players:integer play_time:integer year:integer
+rails db:migrate
+
+rails g model Play game:references note:text played_on:date
+rails db:migrate
+
+rails g controller plays
+
+rails g integration_test create_game_and_log_play
+
 ```
 
 ```yml
