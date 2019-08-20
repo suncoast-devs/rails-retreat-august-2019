@@ -4,7 +4,7 @@
 
 This is where our application acutally lives:
 
-- `assets`: JavaScript, image & CSS
+- `assets`: JavaScript, images & CSS
 - `channels`: For real-time websocket stuff
 - **`controllers`**: CONTROLLERS
 - `helpers`: Helper functions, mostly for views
@@ -12,6 +12,8 @@ This is where our application acutally lives:
 - `mailers`: Email handling code
 - **`models`**: MODELS
 - **`views`**: VIEWS
+
+MVC - Model, View, Controller
 
 ## `bin`
 
