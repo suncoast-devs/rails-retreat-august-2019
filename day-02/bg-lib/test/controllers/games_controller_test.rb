@@ -1,8 +1,19 @@
-require 'test_helper'
+require "test_helper"
 
 class GamesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @game = games(:one)
+    @game = games(:takenoko)
+
+    @new_game = Game.new({
+      title: "Wingspan",
+      designer: "Elizabeth Hargrave",
+      artist: "Ana Maria Martinez Jaramillo, Natalia Rojas, Beth Sobel",
+      publisher: "Stonemair Games",
+      min_players: 2,
+      max_players: 5,
+      play_time: 70,
+      year: 2019,
+    })
   end
 
   test "should get index" do
@@ -16,8 +27,19 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create game" do
-    assert_difference('Game.count') do
-      post games_url, params: { game: { artist: @game.artist, designer: @game.designer, max_players: @game.max_players, min_players: @game.min_players, play_time: @game.play_time, publisher: @game.publisher, title: @game.title, year: @game.year } }
+    assert_difference("Game.count") do
+      post games_url, params: {
+                        game: {
+                          artist: @new_game.artist,
+                          designer: @new_game.designer,
+                          max_players: @new_game.max_players,
+                          min_players: @new_game.min_players,
+                          play_time: @new_game.play_time,
+                          publisher: @new_game.publisher,
+                          title: @new_game.title,
+                          year: @new_game.year,
+                        },
+                      }
     end
 
     assert_redirected_to game_url(Game.last)
@@ -34,12 +56,24 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update game" do
-    patch game_url(@game), params: { game: { artist: @game.artist, designer: @game.designer, max_players: @game.max_players, min_players: @game.min_players, play_time: @game.play_time, publisher: @game.publisher, title: @game.title, year: @game.year } }
+    patch game_url(@game),
+          params: {
+            game: {
+              artist: @game.artist,
+              designer: @game.designer,
+              max_players: @game.max_players,
+              min_players: @game.min_players,
+              play_time: @game.play_time,
+              publisher: @game.publisher,
+              title: @game.title,
+              year: @game.year,
+            },
+          }
     assert_redirected_to game_url(@game)
   end
 
   test "should destroy game" do
-    assert_difference('Game.count', -1) do
+    assert_difference("Game.count", -1) do
       delete game_url(@game)
     end
 

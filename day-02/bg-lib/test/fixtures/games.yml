@@ -1,21 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  designer: MyString
-  artist: MyString
-  publisher: MyString
-  min_players: 1
-  max_players: 1
-  play_time: 1
-  year: 1
+takenoko:
+  title: Takenoko
+  designer: Antoine Bauza
+  artist: Nicolas Fructus, Picksel, Yuio
+  publisher: Asmodee
+  min_players: 2
+  max_players: 4
+  play_time: 45
+  year: 2011
 
-two:
-  title: MyString
-  designer: MyString
-  artist: MyString
-  publisher: MyString
-  min_players: 1
-  max_players: 1
-  play_time: 1
-  year: 1
+rising_sun:
+  title: Rising Sun
+  designer: Eric M. Lang
+  artist: Edgar Skomorowski, Adrian Smith
+  publisher: CMON
+  min_players: 2
+  max_players: 6
+  play_time: 120
+  year: 2018
+
+coimbra:
+  title: Coimbra
+  designer: Eric M. Lang
+  artist: Chris Quilliams
+  publisher: Eggertspiele
+  min_players: 2
+  max_players: 4
+  play_time: 90
+  year: 2018
