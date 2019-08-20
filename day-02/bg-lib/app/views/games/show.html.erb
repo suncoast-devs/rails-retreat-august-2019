@@ -42,3 +42,38 @@
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
+
+<h3>Play Log</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Note</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @game.plays.each do |play| %>
+    <tr>
+      <td><%= play.played_on %></td>
+      <td><%= play.note %></td>
+      <td><%= link_to 'X', [@game, play], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_with(model: [@game, Play.new], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :played_on %>
+    <%= form.date_field :played_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
