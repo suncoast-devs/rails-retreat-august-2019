@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
   # GET /games
   def index
-    @games = Game.all
+    @pagy, @games = pagy(Game.order(title: :asc))
   end
 
   # GET /games/1
