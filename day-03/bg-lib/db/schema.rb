@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_190426) do
+ActiveRecord::Schema.define(version: 2019_08_21_192708) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,9 +33,22 @@ ActiveRecord::Schema.define(version: 2019_08_21_190426) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "designers", force: :cascade do |t|
+    t.string "name"
+    t.text "biography"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "designers_games", id: false, force: :cascade do |t|
+    t.integer "designer_id"
+    t.integer "game_id"
+    t.index ["designer_id"], name: "index_designers_games_on_designer_id"
+    t.index ["game_id"], name: "index_designers_games_on_game_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "title"
-    t.string "designer"
     t.string "artist"
     t.string "publisher"
     t.integer "min_players"

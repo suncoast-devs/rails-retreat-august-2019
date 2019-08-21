@@ -16,7 +16,7 @@ class GamesTest < ApplicationSystemTestCase
     click_on "New Game"
 
     fill_in "Artist", with: @new_game.artist
-    fill_in "Designer", with: @new_game.designer
+    # fill_in "Designer", with: @new_game.designer
     fill_in "Description", with: @new_game.description
     fill_in "Max players", with: @new_game.max_players
     fill_in "Min players", with: @new_game.min_players
@@ -35,7 +35,7 @@ class GamesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Artist", with: @game.artist
-    fill_in "Designer", with: @game.designer
+    # fill_in "Designer", with: @game.designer
     fill_in "Max players", with: @game.max_players
     fill_in "Min players", with: @game.min_players
     fill_in "Play time", with: @game.play_time
