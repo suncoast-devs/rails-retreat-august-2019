@@ -18,6 +18,7 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
+      <th>Cover</th>
       <th>Name</th>
       <th>Designer</th>
       <th>Artist</th>
@@ -33,6 +34,13 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
+        <td>
+          <% if game.cover_art.attached? %>
+            <figure class="image is-64x64">
+              <img src="<%= url_for(game.cover_art.variant(resize: "64x64")) %>" alt="Cover art for <%= game.title %>" />
+            </figure>
+          <% end %>
+        </td>
         <td><%= link_to game.title, game %></td>
         <td><%= game.designer %></td>
         <td><%= game.artist %></td>

@@ -25,48 +25,68 @@
   </div>
 </nav>
 
-<table class="table is-fullwidth">
-  <tr>
-    <th>Name</th>
-    <td><%= @game.title %></td>
-  </tr>
+<div class="columns">
+  <div class="column">
+    <figure class="image is-square">
+      <% if @game.cover_art.attached? %>
+        <img src="<%= url_for(@game.cover_art) %>" alt="Cover art for <%= @game.title %>" />
+      <% else %>
+        <img src="<%= Faker::Placeholdit.image %>" alt="Missing cover art" />
+      <% end %>
+    </figure>
+  </div>
+  <div class="column">
+    <table class="table is-fullwidth">
+      <tr>
+        <th>Name</th>
+        <td><%= @game.title %></td>
+      </tr>
 
-  <tr>
-    <th>Designer</th>
-    <td><%= @game.designer %></td>
-  </tr>
+      <tr>
+        <th>Designer</th>
+        <td><%= @game.designer %></td>
+      </tr>
 
-  <tr>
-    <th>Artist</th>
-    <td><%= @game.artist %></td>
-  </tr>
+      <tr>
+        <th>Artist</th>
+        <td><%= @game.artist %></td>
+      </tr>
 
-  <tr>
-    <th>Publisher</th>
-    <td><%= @game.publisher %></td>
-  </tr>
+      <tr>
+        <th>Publisher</th>
+        <td><%= @game.publisher %></td>
+      </tr>
 
-  <tr>
-    <th>Min Players</th>
-    <td><%= @game.min_players %></td>
-  </tr>
+      <tr>
+        <th>Min Players</th>
+        <td><%= @game.min_players %></td>
+      </tr>
 
-  <tr>
-    <th>Max Players</th>
-    <td><%= @game.max_players %></td>
-  </tr>
+      <tr>
+        <th>Max Players</th>
+        <td><%= @game.max_players %></td>
+      </tr>
 
-  <tr>
-    <th>Play Time</th>
-    <td><%= @game.play_time %></td>
-  </tr>
+      <tr>
+        <th>Play Time</th>
+        <td><%= @game.play_time %></td>
+      </tr>
 
-  <tr>
-    <th>Year</th>
-    <td><%= @game.year %></td>
-  </tr>
+      <tr>
+        <th>Year</th>
+        <td><%= @game.year %></td>
+      </tr>
 
-</table>
+    </table>
+
+    <div class="content">
+      <%= simple_format @game.description %>
+    </div>
+  </div>
+</div>
+
+
+
 
 <h2 class="title is-4">Play Log</h2>
 

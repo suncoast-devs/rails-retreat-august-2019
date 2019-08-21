@@ -78,6 +78,13 @@
     </div>
   </div>
 
+  <div class="field">
+    <%= form.label :cover_art, class: 'label' %>
+    <div class="control">
+      <%= form.file_field :cover_art %>
+    </div>
+  </div>
+
   <div class="field is-grouped">
     <div class="control">
       <%= form.submit class: 'button is-primary' %>
