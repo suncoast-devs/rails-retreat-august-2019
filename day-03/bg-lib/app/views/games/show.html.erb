@@ -27,7 +27,7 @@
 
 <div class="columns">
   <div class="column">
-    <figure class="image is-square">
+    <figure class="image">
       <% if @game.cover_art.attached? %>
         <img src="<%= url_for(@game.cover_art) %>" alt="Cover art for <%= @game.title %>" />
       <% else %>
