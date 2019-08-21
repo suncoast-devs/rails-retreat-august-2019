@@ -2,7 +2,7 @@ require "test_helper"
 
 class PlayTest < ActiveSupport::TestCase
   setup do
-    @game = games(:takenoko)
+    @game = create(:game)
   end
 
   test "a game should have plays" do

@@ -2,18 +2,8 @@ require "test_helper"
 
 class GamesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @game = games(:takenoko)
-
-    @new_game = Game.new({
-      title: "Wingspan",
-      designer: "Elizabeth Hargrave",
-      artist: "Ana Maria Martinez Jaramillo, Natalia Rojas, Beth Sobel",
-      publisher: "Stonemair Games",
-      min_players: 2,
-      max_players: 5,
-      play_time: 70,
-      year: 2019,
-    })
+    @game = create(:game)
+    @new_game = build(:game)
   end
 
   test "should get index" do

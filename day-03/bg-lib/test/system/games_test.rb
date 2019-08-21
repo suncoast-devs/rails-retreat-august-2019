@@ -2,18 +2,9 @@ require "application_system_test_case"
 
 class GamesTest < ApplicationSystemTestCase
   setup do
-    @game = games(:takenoko)
+    @game = create(:game)
 
-    @new_game = Game.new({
-      title: "Wingspan",
-      designer: "Elizabeth Hargrave",
-      artist: "Ana Maria Martinez Jaramillo, Natalia Rojas, Beth Sobel",
-      publisher: "Stonemair Games",
-      min_players: 2,
-      max_players: 5,
-      play_time: 70,
-      year: 2019,
-    })
+    @new_game = build(:game)
   end
 
   test "visiting the index" do

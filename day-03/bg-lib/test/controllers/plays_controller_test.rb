@@ -2,7 +2,8 @@ require "test_helper"
 
 class PlaysControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @game = games(:coimbra)
+    @play = create(:play)
+    @game = @play.game
   end
 
   test "should create game play" do
@@ -20,7 +21,7 @@ class PlaysControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy a play" do
     assert_difference("@game.plays.count", -1) do
-      delete game_play_url(@game, plays(:coimbra_play))
+      delete game_play_url(@game, @play)
     end
 
     assert_redirected_to game_url(@game)
