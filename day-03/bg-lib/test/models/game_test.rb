@@ -25,4 +25,10 @@ class GameTest < ActiveSupport::TestCase
     refute game.valid?
     assert_not_nil game.errors[:description], "No validation error for description."
   end
+
+  test "should require a minimum age" do
+    game = build(:game, min_age: "")
+    refute game.valid?
+    assert_not_nil game.errors[:min_age], "No validation error for minimum age."
+  end
 end

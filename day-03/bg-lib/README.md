@@ -62,3 +62,6 @@ Temporary files, caches, etc. Mostly ignored in git.
 ## `vendor`
 
 Another "back-in-the-day" thing. For third-party code.
+
+## `brew install ImageMagick`
+
