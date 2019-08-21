@@ -3,7 +3,6 @@ require "application_system_test_case"
 class GamesTest < ApplicationSystemTestCase
   setup do
     @game = create(:game)
-
     @new_game = build(:game)
   end
 
@@ -18,6 +17,7 @@ class GamesTest < ApplicationSystemTestCase
 
     fill_in "Artist", with: @new_game.artist
     fill_in "Designer", with: @new_game.designer
+    fill_in "Description", with: @new_game.description
     fill_in "Max players", with: @new_game.max_players
     fill_in "Min players", with: @new_game.min_players
     fill_in "Play time", with: @new_game.play_time

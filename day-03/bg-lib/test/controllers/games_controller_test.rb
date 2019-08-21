@@ -27,6 +27,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
                           play_time: @new_game.play_time,
                           publisher: @new_game.publisher,
                           title: @new_game.title,
+                          description: @new_game.description,
                           year: @new_game.year,
                         },
                       }
@@ -56,6 +57,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
               play_time: @game.play_time,
               publisher: @game.publisher,
               title: @game.title,
+              description: @game.description,
               year: @game.year,
             },
           }

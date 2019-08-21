@@ -19,4 +19,10 @@ class GameTest < ActiveSupport::TestCase
     refute game.valid?
     assert_not_nil game.errors[:title], "No validation error for title."
   end
+
+  test "should require a description" do
+    game = build(:game, description: "")
+    refute game.valid?
+    assert_not_nil game.errors[:description], "No validation error for description."
+  end
 end
