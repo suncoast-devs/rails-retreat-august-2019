@@ -1,0 +1,117 @@
+<nav class="level is-mobile">
+  <div class="level-left">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li><%= link_to "Games", games_path %></li>
+        <li class="is-active"><%= link_to @game.title, @game %></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="level-right">
+    <div class="level-item">
+      <%= link_to edit_game_path(@game), class: 'button is-primary', title: 'Edit' do %>
+        <span class="icon is-small">
+          <i class="fas fa-edit"></i>
+        </span>
+      <% end %>
+    </div>
+    <div class="level-item">
+      <%= link_to @game, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-outlined', title: 'Destroy' do %>
+        <span class="icon is-small">
+          <i class="fas fa-trash"></i>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<table class="table is-fullwidth">
+  <tr>
+    <th>Name</th>
+    <td><%= @game.title %></td>
+  </tr>
+
+  <tr>
+    <th>Designer</th>
+    <td><%= @game.designer %></td>
+  </tr>
+
+  <tr>
+    <th>Artist</th>
+    <td><%= @game.artist %></td>
+  </tr>
+
+  <tr>
+    <th>Publisher</th>
+    <td><%= @game.publisher %></td>
+  </tr>
+
+  <tr>
+    <th>Min Players</th>
+    <td><%= @game.min_players %></td>
+  </tr>
+
+  <tr>
+    <th>Max Players</th>
+    <td><%= @game.max_players %></td>
+  </tr>
+
+  <tr>
+    <th>Play Time</th>
+    <td><%= @game.play_time %></td>
+  </tr>
+
+  <tr>
+    <th>Year</th>
+    <td><%= @game.year %></td>
+  </tr>
+
+</table>
+
+<h2 class="title is-4">Play Log</h2>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Note</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @game.plays.each do |play| %>
+    <tr>
+      <td><%= time_tag play.played_on %></td>
+      <td><%= play.note %></td>
+      <td>
+      <%= link_to [@game, play], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-outlined', title: 'Destroy' do %>
+        <span class="icon is-small">
+          <i class="fas fa-trash"></i>
+        </span>
+      <% end %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2 class="subtitle">Log a play session for <%= @game.title %>:</h2>
+
+<%= form_with(model: [@game, Play.new], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :played_on, class: "label" %>
+    <div class="control">
+      <%= form.date_field :played_on, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :note, class: "label" %>
+    <div class="control">
+      <%= form.text_area :note, class: "textarea" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= form.submit "Log Play", class: "button is-primary" %>
+    </div>
+  </div>
+<% end %>

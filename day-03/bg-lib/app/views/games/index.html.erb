@@ -1,0 +1,47 @@
+<nav class="level is-mobile">
+  <div class="level-left">
+    <div class="level-item">
+      <h1 class="title">Games</h1>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="level-item">
+      <%= link_to new_game_path, class: 'button is-primary', title: 'New Game' do %>
+        <span class="icon is-small">
+          <i class="fas fa-plus"></i>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Designer</th>
+      <th>Artist</th>
+      <th>Publisher</th>
+      <th>Min players</th>
+      <th>Max players</th>
+      <th>Play time</th>
+      <th>Year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= link_to game.title, game %></td>
+        <td><%= game.designer %></td>
+        <td><%= game.artist %></td>
+        <td><%= game.publisher %></td>
+        <td><%= game.min_players %></td>
+        <td><%= game.max_players %></td>
+        <td><%= game.play_time %></td>
+        <td><%= game.year %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

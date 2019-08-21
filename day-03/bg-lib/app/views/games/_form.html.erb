@@ -1,0 +1,81 @@
+<%= form_with(model: game, local: true) do |form| %>
+  <% if game.errors.any? %>
+    <div class="message is-warning">
+      <div class="message-header">
+        <%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:
+      </div>
+      <div class="message-body content">
+        <ul>
+        <% game.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :title, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :designer, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :designer, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :artist, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :artist, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :publisher, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :publisher, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :min_players, class: 'label' %>
+    <div class="control">
+      <%= form.number_field :min_players, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :max_players, class: 'label' %>
+    <div class="control">
+      <%= form.number_field :max_players, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :play_time, class: 'label' %>
+    <div class="control">
+      <%= form.number_field :play_time, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :year, class: 'label' %>
+    <div class="control">
+      <%= form.number_field :year, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit class: 'button is-primary' %>
+    </div>
+    <div class="control">
+      <%= link_to 'Cancel', @game, class: 'button' %>
+    </div>
+  </div>
+<% end %>
