@@ -29,6 +29,7 @@ group :development do
 
   gem 'guard'
   gem 'guard-minitest'
+  gem 'launchy'
 end
 
 group :test do
