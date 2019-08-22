@@ -1,0 +1,42 @@
+<nav class="level is-mobile">
+  <div class="level-left">
+    <div class="level-item">
+      <h1 class="title">Designers</h1>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="level-item">
+      <%= link_to new_designer_path, class: 'button is-primary', title: 'New Designer' do %>
+        <span class="icon is-small">
+          <i class="fas fa-plus"></i>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @designers.each do |designer| %>
+      <tr>
+<!--        <td>-->
+          <%# if designer.cover_art.attached? %>
+<!--            <figure class="image">-->
+<!--              <img src="<%#= url_for(designer.cover_art.variant(resize: "128x128")) %>" alt="Cover art for <%#= designer.title %>" />-->
+<!--            </figure>-->
+          <%# end %>
+<!--        </td>-->
+
+        <td><%= link_to designer.name, designer %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%== pagy_bulma_nav(@pagy) %>

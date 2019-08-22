@@ -1,0 +1,73 @@
+<nav class="level is-mobile">
+  <div class="level-left">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li><%= link_to "Designers", designers_path %></li>
+        <li class="is-active"><%= link_to @designer.name, @designer %></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="level-right">
+    <div class="level-item">
+      <%= link_to edit_designer_path(@designer), class: 'button is-primary', title: 'Edit' do %>
+        <span class="icon is-small">
+          <i class="fas fa-edit"></i>
+        </span>
+      <% end %>
+    </div>
+    <div class="level-item">
+      <%= link_to @designer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-outlined', title: 'Destroy' do %>
+        <span class="icon is-small">
+          <i class="fas fa-trash"></i>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<div class="columns">
+  <div class="column">
+    <figure class="image">
+      <% if @designer.photo.attached? %>
+        <img src="<%= url_for(@designer.photo) %>" alt="Photo of <%= @designer.name %>" />
+      <% else %>
+        <img src="<%= Faker::Placeholdit.image %>" alt="Missing photo" />
+      <% end %>
+    </figure>
+  </div>
+  <div class="column">
+    <table class="table is-fullwidth">
+      <tr>
+        <th>Name</th>
+        <td><%= @designer.name %></td>
+      </tr>
+
+
+
+    </table>
+
+    <div class="content">
+      <%= simple_format @designer.biography %>
+    </div>
+  </div>
+</div>
+
+
+
+
+<h2 class="title is-4"> Games by <%= @designer.name %></h2>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <% @designer.games.each do |game| %>
+    <tr>
+      <td><%= link_to game.title, game %></td>
+
+    </tr>
+  <% end %>
+</table>
+
