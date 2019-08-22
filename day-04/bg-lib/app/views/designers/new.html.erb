@@ -1,0 +1,8 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to "Designers", designers_path %></li>
+    <li class="is-active"><a href="#">New</a></li>
+  </ul>
+</nav>
+
+<%= render 'form', designer: @designer %>

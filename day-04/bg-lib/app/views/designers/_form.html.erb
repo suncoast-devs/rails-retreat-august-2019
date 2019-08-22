@@ -1,0 +1,46 @@
+<%= form_with(model: designer, local: true) do |form| %>
+  <% if designer.errors.any? %>
+    <div class="message is-warning">
+      <div class="message-header">
+        <%= pluralize(designer.errors.count, "error") %> prohibited this designer from being saved:
+      </div>
+      <div class="message-body content">
+        <ul>
+        <% designer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :name, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :biography, class: 'label' %>
+    <div class="control">
+      <%= form.text_area :biography, class: 'textarea' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo, class: 'label' %>
+    <div class="control">
+      <%= form.file_field :photo %>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit class: 'button is-primary' %>
+    </div>
+    <div class="control">
+      <%= link_to 'Cancel', @designer, class: 'button' %>
+    </div>
+  </div>
+<% end %>
