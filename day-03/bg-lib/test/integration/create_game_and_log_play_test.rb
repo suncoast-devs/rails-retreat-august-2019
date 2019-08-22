@@ -13,6 +13,7 @@ class CreateGameAndLogPlayTest < ActionDispatch::IntegrationTest
                      description: "It is an age of great discoveries. New and wonderful items find their ways into the hands of the greatest merchants. And if there ever is a place those traders love, it is the town of Dale.\n\nThere’s an extraordinary guild in the Dale founded by the greatest merchants. The tricky part is getting the membership since one must win the annual trading competition to be invited to the guild.\n\nNotable animalfolk merchants from all over the world have gathered in the town to take part in the event. Everyone has only one goal in mind – to be celebrated as the winner and the newest member of the legendary guild.\n\nIn Dale of Merchants, players take the roles of those participating merchants learning new techniques, trading goods, and managing their stock. The player who first manages to complete their astounding merchant stall wins the game and gets access to the guild!",
                      min_players: 2,
                      max_players: 3,
+                     min_age: 8,
                      play_time: 30,
                    } }
     assert_response :redirect

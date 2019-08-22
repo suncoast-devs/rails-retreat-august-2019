@@ -44,7 +44,7 @@
 
       <tr>
         <th>Designer</th>
-        <td><%= @game.designer %></td>
+        <td><%= @game.designer_names %></td>
       </tr>
 
       <tr>
@@ -70,6 +70,11 @@
       <tr>
         <th>Play Time</th>
         <td><%= @game.play_time %></td>
+      </tr>
+
+      <tr>
+        <th>Age</th>
+        <td><%= @game.min_age %>+</td>
       </tr>
 
       <tr>

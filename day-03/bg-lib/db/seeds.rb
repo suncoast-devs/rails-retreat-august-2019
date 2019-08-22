@@ -19,6 +19,8 @@ GAMES = [
   END
     min_players: 2,
     max_players: 4,
+    min_age: 2,
+
     play_time: 45,
     year: 2011,
   },
@@ -36,6 +38,7 @@ GAMES = [
   END
     min_players: 2,
     max_players: 6,
+    min_age: 2,
     play_time: 120,
     year: 2018,
   },
@@ -51,6 +54,7 @@ GAMES = [
   END
     min_players: 2,
     max_players: 4,
+    min_age: 2,
     play_time: 90,
     year: 2018,
   },
@@ -66,6 +70,7 @@ GAMES = [
   END
     min_players: 3,
     max_players: 5,
+    min_age: 2,
     play_time: 120,
     year: 2015,
   },
@@ -79,6 +84,7 @@ GAMES = [
   END
     min_players: 2,
     max_players: 5,
+    min_age: 2,
     play_time: 60,
     year: 2004,
   },
@@ -98,6 +104,7 @@ GAMES = [
   END
     min_players: 2,
     max_players: 2,
+    min_age: 2,
     play_time: 120,
     year: 2019,
   },
@@ -121,6 +128,7 @@ GAMES = [
   END
     min_players: 1,
     max_players: 4,
+    min_age: 2,
     play_time: 120,
     year: 2020,
   },
@@ -138,6 +146,7 @@ GAMES = [
   END
     min_players: 1,
     max_players: 5,
+    min_age: 2,
     play_time: 120,
     year: 2019,
   },
@@ -155,6 +164,7 @@ GAMES = [
   END
     min_players: 2,
     max_players: 4,
+    min_age: 2,
     play_time: 90,
     year: 2019,
   },
@@ -172,6 +182,7 @@ GAMES = [
   END
     min_players: 1,
     max_players: 4,
+    min_age: 2,
     play_time: 60,
     year: 2016,
   },
@@ -191,6 +202,7 @@ GAMES = [
   END
     min_players: 2,
     max_players: 4,
+    min_age: 2,
     play_time: 30,
     year: 2015,
   },

@@ -4,6 +4,7 @@ FactoryBot.define do
     description { Faker::Lorem.paragraphs(number: 3).join() }
     min_players { [1, 2].sample }
     max_players { (4..8).to_a.sample }
+    min_age     { (8..16).to_a.sample }
 
     trait :untitled do
       title { nil }

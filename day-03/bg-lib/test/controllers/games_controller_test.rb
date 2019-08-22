@@ -21,9 +21,10 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
       post games_url, params: {
                         game: {
                           artist: @new_game.artist,
-                          designer: @new_game.designer,
+                          # designer: @new_game.designer,
                           max_players: @new_game.max_players,
                           min_players: @new_game.min_players,
+                          min_age: @new_game.min_age,
                           play_time: @new_game.play_time,
                           publisher: @new_game.publisher,
                           title: @new_game.title,
@@ -51,9 +52,10 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
           params: {
             game: {
               artist: @game.artist,
-              designer: @game.designer,
+              # designer: @game.designer,
               max_players: @game.max_players,
               min_players: @game.min_players,
+              min_age: @game.min_age,
               play_time: @game.play_time,
               publisher: @game.publisher,
               title: @game.title,
