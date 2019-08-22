@@ -29,8 +29,8 @@
       <tr>
         <td>
           <% if game.cover_art.attached? %>
-            <figure class="image">
-              <img src="<%= url_for(game.cover_art.variant(resize: "128x128")) %>" alt="Cover art for <%= game.title %>" />
+            <figure class="image is-128x128">
+              <img src="<%= url_for(game.cover_art.variant(resize: "512x512", extent: "512x512")) %>" alt="Cover art for <%= game.title %>" />
             </figure>
           <% end %>
         </td>
