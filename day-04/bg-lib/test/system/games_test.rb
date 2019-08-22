@@ -16,7 +16,7 @@ class GamesTest < ApplicationSystemTestCase
     click_on "New Game"
 
     fill_in "Artist", with: @new_game.artist
-    # fill_in "Designer", with: @new_game.designer
+    fill_in "Designer names", with: @new_game.designer_names
     fill_in "Description", with: @new_game.description
     fill_in "Max players", with: @new_game.max_players
     fill_in "Min players", with: @new_game.min_players
@@ -30,12 +30,19 @@ class GamesTest < ApplicationSystemTestCase
     assert_text "#{@new_game.title} was successfully created"
   end
 
+  test "creating an incomplete Game" do
+    visit games_url
+    click_on "New Game"
+    click_on "Create Game"
+    assert_text "errors prohibited this game from being saved"
+  end
+
   test "updating a Game" do
     visit game_url(@game)
     click_on "Edit", match: :first
 
     fill_in "Artist", with: @game.artist
-    # fill_in "Designer", with: @game.designer
+    fill_in "Designer names", with: @game.designer_names
     fill_in "Max players", with: @game.max_players
     fill_in "Min players", with: @game.min_players
     fill_in "Play time", with: @game.play_time
@@ -45,6 +52,16 @@ class GamesTest < ApplicationSystemTestCase
     click_on "Update Game"
 
     assert_text "#{@game.title} was successfully updated"
+  end
+
+  test "updating an Game to be incomplete" do
+    visit game_url(@game)
+    click_on "Edit", match: :first
+
+    fill_in "Title", with: ""
+    click_on "Update Game"
+
+    assert_text "error prohibited this game from being saved"
   end
 
   test "destroying a Game" do
