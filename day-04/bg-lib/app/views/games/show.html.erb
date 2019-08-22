@@ -44,7 +44,15 @@
 
       <tr>
         <th>Designer</th>
-        <td><%= @game.designer_names %></td>
+        <td>
+          <ul>
+            <% @game.designers.each do |designer| %>
+              <li>
+                <%=  link_to designer.name, designer %>
+              </li>
+            <% end %>
+          </ul>
+        </td>
       </tr>
 
       <tr>

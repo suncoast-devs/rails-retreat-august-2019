@@ -16,6 +16,9 @@
 </nav>
 
 <table class="table is-fullwidth">
+  <col width="128">
+  <col width="*">
+  <col width="200">
   <thead>
     <tr>
       <th></th>
@@ -44,7 +47,27 @@
             <%= game.min_age || 0 %>+
           </p>
         </td>
-        <td><%= game.designer_names %></td>
+        <td>
+          <ul>
+            <% game.designers.each do |designer| %>
+            <li>
+              <nav class="level">
+                <div class="level-left">
+                  <% if designer.photo.attached? %>
+                  <figure class="image is-16x16">
+                  <img class="is-rounded" src="<%= url_for(designer.photo.variant(resize: "32x32", extent: "32x32")) %>" />
+                  </figure>
+                    <% end %>
+                </div>
+                <div class="level-right">
+                  <%=  link_to designer.name, designer %>
+                </div>
+              </nav>
+            </li>
+            <% end %>
+          </ul>
+
+        </td>
       </tr>
     <% end %>
   </tbody>
