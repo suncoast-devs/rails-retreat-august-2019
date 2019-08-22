@@ -31,4 +31,15 @@ class GameTest < ActiveSupport::TestCase
     refute game.valid?
     assert_not_nil game.errors[:min_age], "No validation error for minimum age."
   end
+
+  test "should create designers through `designer_names`" do
+    game = create(:game)
+    assert_difference("Designer.count", 2) do
+      game.designer_names = "Sandy and Randy"
+    end
+
+    assert_difference("Designer.count", 3) do
+      game.designer_names = "Alice, Bob, Charles"
+    end
+  end
 end
