@@ -1,0 +1,53 @@
+<nav class="level is-mobile">
+  <div class="level-left">
+    <div class="level-item">
+      <h1 class="title">Games</h1>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="level-item">
+      <%= link_to new_game_path, class: 'button is-primary', title: 'New Game' do %>
+        <span class="icon is-small">
+          <i class="fas fa-plus"></i>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Game</th>
+      <th>Designer</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td>
+          <% if game.cover_art.attached? %>
+            <figure class="image">
+              <img src="<%= url_for(game.cover_art.variant(resize: "128x128")) %>" alt="Cover art for <%= game.title %>" />
+            </figure>
+          <% end %>
+        </td>
+        <td>
+          <p class="title is-5"><%= link_to game.title, game %> (<%= game.year %>)</p>
+          <p class="subtitle is-7">
+            <%= game.min_players %>-<%= game.max_players %> players
+            <br />
+            <%= game.play_time %> minutes
+            <br />
+            <%= game.min_age || 0 %>+
+          </p>
+        </td>
+        <td><%= game.designer_names %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%== pagy_bulma_nav(@pagy) %>

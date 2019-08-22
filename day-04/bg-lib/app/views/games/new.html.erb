@@ -1,0 +1,8 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to "Games", games_path %></li>
+    <li class="is-active"><a href="#">New</a></li>
+  </ul>
+</nav>
+
+<%= render 'form', game: @game %>

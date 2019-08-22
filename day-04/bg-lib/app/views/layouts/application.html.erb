@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BgLib</title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script defer src="https://use.fontawesome.com/releases/v5.10.1/js/all.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">Board Game Library</a>
+      </div>
+    </nav>
+    <section class="section">
+      <div class="container">
+        <% if notice %>
+          <article class="message is-info">
+            <div class="message-body">
+              <%= notice %>
+            </div>
+          </article>
+        <% end %>
+        <%= yield %>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          A <strong>Board Game Library</strong> built for a Rails Retreat in 2019.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
