@@ -5,6 +5,7 @@ class PlaysController < ApplicationController
   def create
     @game = Game.find(params[:game_id])
     play = @game.plays.new(play_params)
+    play.user = current_user
 
     if play.save
       redirect_to @game, notice: "Logged a play for #{@game.title}"

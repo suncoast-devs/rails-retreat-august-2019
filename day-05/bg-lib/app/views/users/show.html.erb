@@ -5,5 +5,32 @@
     <div class="content">
        <%= gravatar_for @user %>
     </div>
+    <h2 class="title is-4">Play Log</h2>
+
+    <table class="table is-fullwidth">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Note</th>
+        <th>Game</th>
+        <th></th>
+      </tr>
+      </thead>
+      <% @user.plays.each do |play| %>
+        <tr>
+          <td><%= time_tag play.played_on %></td>
+          <td><%= play.note %></td>
+          <td><%= link_to play.game.title, play.game %></td>
+          <td>
+            <% if play.user == current_user %>
+              <%= link_to [play.game, play], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-outlined', title: 'Destroy' do %>
+        <span class="icon is-small">
+          <i class="fas fa-trash"></i>
+        </span>
+              <% end %>
+            <% end %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>
