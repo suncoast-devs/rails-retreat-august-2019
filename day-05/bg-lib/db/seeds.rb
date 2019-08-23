@@ -215,3 +215,6 @@ GAMES.each do |data|
     game.cover_art.attach(io: File.open(path), filename: "#{data[:title].parameterize}.jpg")
   end
 end
+
+User.create ([{name: "azure diamond", email: "azure@example.com",
+               password: "hunter2", password_confirmation: "hunter2"}])
