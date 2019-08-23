@@ -108,6 +108,7 @@
     <tr>
       <th>Date</th>
       <th>Note</th>
+      <th>User</th>
       <th></th>
     </tr>
   </thead>
@@ -115,16 +116,19 @@
     <tr>
       <td><%= time_tag play.played_on %></td>
       <td><%= play.note %></td>
+      <td><%= link_to play.user.name, play.user %></td>
       <td>
+        <% if play.user == current_user %>
       <%= link_to [@game, play], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-outlined', title: 'Destroy' do %>
         <span class="icon is-small">
           <i class="fas fa-trash"></i>
         </span>
-      <% end %></td>
+      <% end %>
+        <% end %></td>
     </tr>
   <% end %>
 </table>
-
+<% if current_user %>
 <h2 class="subtitle">Log a play session for <%= @game.title %>:</h2>
 
 <%= form_with(model: [@game, Play.new], local: true) do |form| %>
@@ -147,4 +151,5 @@
       <%= form.submit "Log Play", class: "button is-primary" %>
     </div>
   </div>
+<% end %>
 <% end %>
