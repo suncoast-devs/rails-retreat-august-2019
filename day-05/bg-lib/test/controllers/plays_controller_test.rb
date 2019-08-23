@@ -4,6 +4,8 @@ class PlaysControllerTest < ActionDispatch::IntegrationTest
   setup do
     @play = create(:play)
     @game = @play.game
+
+    sign_in
   end
 
   test "should create game play" do

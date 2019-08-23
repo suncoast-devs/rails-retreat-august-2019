@@ -1,4 +1,5 @@
 class PlaysController < ApplicationController
+  before_action :authenticate!, except: [:index, :show]
 
   # POST /games/1/plays
   def create

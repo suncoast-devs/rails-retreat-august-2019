@@ -4,6 +4,8 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @game = create(:game)
     @new_game = build(:game)
+
+    sign_in
   end
 
   test "should get index" do

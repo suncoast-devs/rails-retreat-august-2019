@@ -1,6 +1,10 @@
 require "test_helper"
 
 class CreateGameAndLogPlayTest < ActionDispatch::IntegrationTest
+  setup do
+    sign_in
+  end
+
   test "can create a new game" do
     get "/games/new"
     assert_response :success

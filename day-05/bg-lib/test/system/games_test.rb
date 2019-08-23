@@ -4,6 +4,8 @@ class GamesTest < ApplicationSystemTestCase
   setup do
     @game = create(:game)
     @new_game = build(:game)
+
+    sign_in
   end
 
   test "visiting the index" do

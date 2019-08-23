@@ -4,6 +4,8 @@ class DesignersTest < ApplicationSystemTestCase
   setup do
     @designer = create(:designer)
     @new_designer = build(:designer)
+
+    sign_in
   end
 
   test "visiting the index" do
