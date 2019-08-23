@@ -36,4 +36,18 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to be_falsey
     end
   end
+
+  it "should have a unique email address" do
+    skip
+    user_a = create(:user)
+    user_b = user_a.dup
+
+    puts user_a.email
+    puts user_b.email
+
+    # user_b.save
+
+    expect(@user.errors[:email]).to be_present
+    expect(@user.valid?).to be_falsey
+  end
 end

@@ -3,5 +3,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true,
-                    format: { with: VALID_EMAIL_REGEX }
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: true
 end
