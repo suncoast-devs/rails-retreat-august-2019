@@ -1,0 +1,9 @@
+<div class="section">
+  <div class="container">
+    <h1 class="title"><%= @user.name %></h1>
+    <h2 class="subtitle"><%= @user.email %></h2>
+    <div class="content">
+       <%= gravatar_for @user %>
+    </div>
+  </div>
+</div>

@@ -50,4 +50,14 @@ RSpec.describe User, type: :model do
     expect(@user.errors[:email]).to be_present
     expect(@user.valid?).to be_falsey
   end
+
+  it "should require a password" do
+    @user.password = @user.password_confirmation = " " * 6
+    expect(@user.valid?).to be_falsey
+  end
+
+  it "should have a minimum length for password" do
+    @user.password = @user.password_confirmation = "a" * 5
+    expect(@user.valid?).to be_falsey
+  end
 end
