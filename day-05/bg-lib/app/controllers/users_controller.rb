@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user, notice: "Welcome to Board Game Library"
+      session[:user_id] = @user.id
+      redirect_to @user, notice: "Welcome to Board Game Library, #{@user.name}."
     else
       render "new"
     end
